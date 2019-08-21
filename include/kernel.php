@@ -394,8 +394,8 @@ if (isset($_COOKIE[COOKIE_AUTH_NAME])) {
         $userpuid = $userinfoi['puid']; // public id
         $useruid = $userinfoi['uid']; // private id
         $useremail = $userinfoi['email']; // email
-		
-		$con->query("UPDATE `accounts` SET `time`=UNIX_TIMESTAMP(NOW()) WHERE `uid`='$useruid'"); // update online time
+
+        $con->query("UPDATE `accounts` SET `time`=UNIX_TIMESTAMP(NOW()) WHERE `uid`='$useruid'"); // update online time
     } else {
         $authd = '';
         $userexists = 0; // user doesn't exist
@@ -417,7 +417,6 @@ $authtoken = $_COOKIE[COOKIE_TOKEN_NAME] ?? '';
 function tokenregen(): void {
     global $authtoken;
 	$gentoken = strgen(COOKIE_TOKEN_LENGTH, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ$!_-.');
-    //setrawcookie(COOKIE_TOKEN_NAME, $gentoken, COOKIE_TOKEN_EXP, '/', SITE_DOMAIN, true, true);
     setcookie(COOKIE_TOKEN_NAME, $gentoken, [
         'expires' => COOKIE_TOKEN_EXP,
         'path' => '/',
@@ -439,7 +438,7 @@ function tokenregen(): void {
 function chktoken($errmsg = true, $enfgen = false) {
     global $authtoken;
     $tokenval = $_POST['token'] ?? '';
-	if ($tokenval != $authtoken) {
+    if ($tokenval != $authtoken) {
         if ($errmsg) {
             if (!$enfgen && sourceverifier()) {
                 exiti(jsonres('error', 'token mismatch - try refreshing', 10, 'msg'));
@@ -449,12 +448,12 @@ function chktoken($errmsg = true, $enfgen = false) {
         } else {
             return true;
         }
-	} else {
-		return false;
-	}
+    } else {
+        return false;
+    }
 }
 if (realcount($authtoken) != COOKIE_TOKEN_LENGTH) {
-	tokenregen(); // re-create token if not using the correct length or doesn't exist
+    tokenregen(); // re-create token if not using the correct length or doesn't exist
 }
 
 /**
