@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 21, 2019 at 07:19 PM
+-- Generation Time: Aug 21, 2019 at 10:19 PM
 -- Server version: 10.4.7-MariaDB-1:10.4.7+maria~disco-log
 -- PHP Version: 7.3.8-1+ubuntu19.04.1+deb.sury.org+1
 
@@ -35,18 +35,18 @@ CREATE TABLE `accounts` (
   `email` text COLLATE utf32_bin NOT NULL,
   `username` text CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `password` text CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `passwhen` int(11) NOT NULL COMMENT 'Time and date of last password set',
+  `passwhen` int(11) NOT NULL DEFAULT 0 COMMENT 'Time and date of last password set',
   `ip` text COLLATE utf32_bin NOT NULL,
   `useragent` text COLLATE utf32_bin NOT NULL,
   `avatar` text COLLATE utf32_bin NOT NULL,
-  `signature` text COLLATE utf32_bin NOT NULL,
+  `signature` text COLLATE utf32_bin NOT NULL DEFAULT '',
   `time` int(11) NOT NULL,
   `activationkey` text CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
-  `activationtime` int(11) NOT NULL COMMENT 'time account activated',
+  `activationtime` int(11) NOT NULL DEFAULT 0 COMMENT 'time account activated',
   `regtime` int(11) NOT NULL COMMENT 'time registered',
-  `cryptokey` text COLLATE utf32_bin NOT NULL COMMENT 'crpyto private key',
-  `cryptoiv` text COLLATE utf32_bin NOT NULL COMMENT 'crypto iv',
-  `cryptoaad` text COLLATE utf32_bin NOT NULL COMMENT 'crypto additional auth data'
+  `cryptokey` text COLLATE utf32_bin NOT NULL DEFAULT '' COMMENT 'crpyto private key',
+  `cryptoiv` text COLLATE utf32_bin NOT NULL DEFAULT '' COMMENT 'crypto iv',
+  `cryptoaad` text COLLATE utf32_bin NOT NULL DEFAULT '' COMMENT 'crypto additional auth data'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_bin ROW_FORMAT=COMPACT;
 
 -- --------------------------------------------------------
