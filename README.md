@@ -44,9 +44,8 @@ For this to function, there are a few requirements.
 - PHP cURL & JSON extensions
 - OpenSSL
 - Google reCaptcha v2
-- Mailgun\*
-<br>
-\* When email activation is completely implemented
+- Mailgun
+  * When email activation is completely implemented
 
 ## Configuring
 
