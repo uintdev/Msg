@@ -67,7 +67,8 @@ Assuming you are using Nginx, add this to your configuration:
 location / {
     try_files $uri $uri/ /index.php;
     rewrite ^/(.*)/?$ /index.php?query=$1;
-}                                                                                                                            location /backend {
+}
+location /backend {
     rewrite ^/index\.php?query=(.*)$ /index.php?query=$1;
     rewrite ^/index\.php?query=(.*)/?$ /index.php?query=$1;
 }
