@@ -30,7 +30,8 @@ You can try it out at https://msg.uint.dev/. Please note that the live site is b
 - Work on cryptography for account userdata and messages
 - Further implement email activation
 - Clean up code and more comments
-- Correct splash screen and loading indicator alignment 
+- Correct splash screen and loading indicator alignment
+- Sort out accessibility
 
 ## Known issues
 
