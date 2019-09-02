@@ -54,7 +54,6 @@ if (isset($_POST['password'])) {
 if (isset($_POST['passworda'])) {
 
     $passworda = $_POST['passworda'];
-    $passworda = trim($passworda);
 
     if ($password != $passworda) exiti('both passwords don\'t match');
 
