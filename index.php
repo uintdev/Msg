@@ -42,7 +42,7 @@ header("Content-Security-Policy: script-src 'self' 'strict-dynamic' 'nonce-".CSP
 <body class="preload">
 <div class="shell_loader show">
 <div class="shell_loader_con">
-<div class="shell_loader_logo"><?php echo SITE_NAME_FRIENDLY; ?></div>
+<div class="shell_loader_logo"><?php echo SITE_NAME_FRIENDLY; ?> <sup style="font-size: 70%;">dev</sup></div>
 <div class="shell_loader_text"><noscript>javascript required</noscript></div>
 </div>
 </div>
