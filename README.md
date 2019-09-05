@@ -63,21 +63,9 @@ Import the `import.sql` file to deal with the table structure in the database.
 
 Assuming you are using Nginx, add this to your configuration:
 
-```
+```nginx
 location / {
     try_files $uri $uri/ /index.php;
     rewrite ^/(.*)/?$ /index.php?query=$1;
 }
-location /backend {
-    rewrite ^/index\.php?query=(.*)$ /index.php?query=$1;
-    rewrite ^/index\.php?query=(.*)/?$ /index.php?query=$1;
-}
-location /css {
-    rewrite ^/index\.php?query=(.*)$ /index.php?query=$1;
-    rewrite ^/index\.php?query=(.*)/?$ /index.php?query=$1;
-}
-location /img {
-    rewrite ^/index\.php?query=(.*)$ /index.php?query=$1;
-    rewrite ^/index\.php?query=(.*)/?$ /index.php?query=$1;
-}   
 ```
