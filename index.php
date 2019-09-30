@@ -82,6 +82,7 @@ console.log("%cThis feature is intended for developers only.", 'font-size:15px;'
 console.log("%cIf someone tells you to enter code here, it is most likely a trick that could result in your account being compromised.", 'font-size:15px;');
 console.log("%cBe aware of what the code actually does before executing it.", 'font-size:15px;');
 console.log('! MSG BUILD <?php echo SITE_VERSION.' '.SITE_BUILD ?> LOADED !');
+// JSON format validation
 function checkjson(jsonin) {
     try {
         var jsonva = window.JSON.parse(jsonin);
@@ -91,6 +92,7 @@ function checkjson(jsonin) {
     } catch (e) {}
     return false;
 }
+// Prevent selection of menu elements when hidden
 function menutablock(tolock = true) {
     var linkindex;
     $('.menulist .menuselection .menuoption').each(function() {
@@ -112,6 +114,7 @@ function menutablock(tolock = true) {
         }
     });
 }
+// Create menu list
 function menuloader(jsonres = '') {
     $('.menuselection').html('');
     if (checkjson(jsonres)) {
@@ -125,6 +128,7 @@ function menuloader(jsonres = '') {
     }
     menutablock();
 }
+
 var list = document.getElementsByClassName('preload')[0];
 list.getElementsByClassName('shell_loader_text')[0].innerHTML = 'loading ...';
 if (typeof $ == 'undefined') {
@@ -166,6 +170,7 @@ if (typeof $ == 'undefined') {
         sitev = '<?php echo SITE_VERSION ?>';
         siteb = '<?php echo SITE_BUILD ?>';
         csrfcookie = '<?php echo $authtoken ?>';
+        // Toggle menu
         function togglemenu(specialexception = 'none') {
             if (menutog === false) {
                 menutog = true;
@@ -196,6 +201,7 @@ if (typeof $ == 'undefined') {
                 }
             }
         }
+        // Modern navigation
         function navigator(location = '', ntype = '') {
             getquerybit = window.location.pathname.replace('/', '');
             if (getquerybit != location && ntype == 'n') {
@@ -204,6 +210,7 @@ if (typeof $ == 'undefined') {
                 getquerybit = window.location.pathname.replace('/', '');
             }
         }
+        // Reload data
         function reloadall(option = '') {
             $.get('/backend/menu.php', function(data) {
                 if (data != '') {
@@ -228,6 +235,7 @@ if (typeof $ == 'undefined') {
                 $('.menuselection').append('<div class="menuoption" data-order="1">please reload</div>');
             })
         }
+        // Query handler
         function query(location = 'null', ntype = 'n') {
             querypending = true;
             // document.title = "This is the new page title.";
@@ -274,6 +282,7 @@ if (typeof $ == 'undefined') {
             })
             querypending = false;
         }
+        // Check for client-side related updates
         var updatelock = false;
         function updatechk() {
             if (!updatelock) {
@@ -313,9 +322,9 @@ if (typeof $ == 'undefined') {
                 })
             }
         }
-        
         setInterval(function() { updatechk(); }, 1800000);
 
+        // Safely handle back navigation
         $(window).on('popstate', function(event) {
             getquerybit = window.location.pathname;
             getquerybit = getquerybit.replace('/', '');
@@ -324,7 +333,9 @@ if (typeof $ == 'undefined') {
             }
             query(getquerybit, 'bt');
         });
+
         $(function() {
+            // Menu toggle handling
             $(document).on('click', '.coverarea.coverareaa', function(e) {
                 e.preventDefault();
                 e.stopImmediatePropagation();
@@ -340,6 +351,7 @@ if (typeof $ == 'undefined') {
                 }
             });
 
+            // Ripple effect
             var parent, ink, d, x, y;
             var actionlock = false;
 
