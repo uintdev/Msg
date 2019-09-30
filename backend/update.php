@@ -24,7 +24,7 @@ if (isset($_POST['vi']) && $_POST['vi'] != '') {
             'res' => 'ERR',
             'msg' => 'Bad data'
         ];
-    } else if (SITE_VERSION > $vii[0]) {
+    } else if (SITE_BUILD != $vii[1] || SITE_VERSION > $vii[0]) {
         $updat = [
             'res' => 'VERCHK',
             'currentv' => (int)$vii[0],
