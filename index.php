@@ -98,7 +98,6 @@ function menutablock(tolock = true) {
         if (tolock) {
             $(this).prop('tabindex', '-1');
         } else {
-            datnum = $(this).attr('data-order');
             $(this).prop('tabindex', 0);
         }
     });
@@ -158,9 +157,6 @@ if (typeof $ == 'undefined') {
     if (librarypayload === true) {
         menutog = false;
         querypending = false;
-        menutogs = 150;
-        pressc = 'rgba(126,97,229,0.4)';
-        presscm = 'rgba(0,0,0,0.1)';
         cspjss = '<?php echo CSP_JS_ID ?>';
         sitev = '<?php echo SITE_VERSION ?>';
         siteb = '<?php echo SITE_BUILD ?>';
@@ -385,8 +381,8 @@ if (typeof $ == 'undefined') {
                                     actionlock = false;
                             }, 250);
                         } else {
-                                query(launch);
-                                actionlock = false;
+                            query(launch);
+                            actionlock = false;
                         }
                     }, 300);
                 }
