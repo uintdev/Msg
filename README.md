@@ -68,4 +68,9 @@ location / {
     try_files $uri $uri/ /index.php;
     rewrite ^/(.*)/?$ /index.php?query=$1;
 }
+location ~* /(backend|css|img) {
+    rewrite ^/index\.php?query=(.*)$ /index.php?query=$1;
+    rewrite ^/index\.php?query=(.*)/?$ /index.php?query=$1;
+}
 ```
+The block to do with using the PHP socket for files with the `.php` file extension **must** be above the configuration mentioned. Otherwise, files in `/backend` will not be interpreted.
