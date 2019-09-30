@@ -47,7 +47,7 @@ header("Content-Security-Policy: script-src 'self' 'strict-dynamic' 'nonce-".CSP
 </div>
 </div>
 <div class="header">
-<span class="menuwrapper"><div class="menutoggle" tabindex="1"></div><span class="menuicon"></span></span>
+<span class="menuwrapper"><div class="menutoggle" tabindex="0"></div><span class="menuicon"></span></span>
 <span class="title"><?php echo SITE_NAME_FRIENDLY; ?></span>
 <span class="loading">...</span>
 </div>
@@ -57,7 +57,7 @@ header("Content-Security-Policy: script-src 'self' 'strict-dynamic' 'nonce-".CSP
 <hr>
 </div>
 <div class="menuselection">
-<div class="menuoption" data-launch="" data-order="1" tabindex="2">error</div>
+<div class="menuoption" data-launch="" data-order="1" tabindex="0">error</div>
 </div>
 <div class="menufooter">A <a href="https://uint.dev/" target="_blank" rel="noopener" tabindex="-1">uint.dev</a> project</div>
 </div>
@@ -94,23 +94,19 @@ function checkjson(jsonin) {
 }
 // Prevent selection of menu elements when hidden
 function menutablock(tolock = true) {
-    var linkindex;
     $('.menulist .menuselection .menuoption').each(function() {
         if (tolock) {
             $(this).prop('tabindex', '-1');
         } else {
-            linkindex = 0;
             datnum = $(this).attr('data-order');
-            datnum = parseInt(datnum) + 1;
-            $(this).prop('tabindex', datnum);
-            linkindex = datnum + 1;
+            $(this).prop('tabindex', 0);
         }
     });
     $('.menulist .menufooter a').each(function() {
         if (tolock) {
             $(this).prop('tabindex', '-1');
         } else {
-            $(this).prop('tabindex', linkindex);
+            $(this).prop('tabindex', 0);
         }
     });
 }
@@ -124,7 +120,7 @@ function menuloader(jsonres = '') {
             $('.menuselection').append('<div class="menuoption action" data-order="' + count + '" tabindex="-1" data-launch="' + jsondat[count]['path'] + '">' + jsondat[count]['name'] + '</div>');
         }
     } else {
-        $('.menuselection').append('<div class="menuoption" data-order="1" tabindex="2" data-launch="">malformed data</div>');
+        $('.menuselection').append('<div class="menuoption" data-order="1" tabindex="-1" data-launch="">malformed data</div>');
     }
     menutablock();
 }
