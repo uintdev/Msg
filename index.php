@@ -115,7 +115,6 @@ function menuloader(jsonres = '') {
     $('.menuselection').html('');
     if (checkjson(jsonres)) {
         jsondat = window.JSON.parse(jsonres);
-        indextab = 1;
         for (var count in jsondat) {
             $('.menuselection').append('<div class="menuoption action" data-order="' + count + '" tabindex="-1" data-launch="' + jsondat[count]['path'] + '">' + jsondat[count]['name'] + '</div>');
         }
