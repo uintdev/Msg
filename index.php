@@ -47,7 +47,7 @@ header("Content-Security-Policy: script-src 'self' 'strict-dynamic' 'nonce-".CSP
 </div>
 </div>
 <div class="header">
-<span class="menuwrapper"><span class="menutoggle"></span><span class="menuicon"></span></span>
+<span class="menuwrapper"><div class="menutoggle" tabindex="1"></div><span class="menuicon"></span></span>
 <span class="title"><?php echo SITE_NAME_FRIENDLY; ?></span>
 <span class="loading">...</span>
 </div>
@@ -57,9 +57,9 @@ header("Content-Security-Policy: script-src 'self' 'strict-dynamic' 'nonce-".CSP
 <hr>
 </div>
 <div class="menuselection">
-<div class="menuoption" data-launch="" data-order="1">error</div>
+<div class="menuoption" data-launch="" data-order="1" tabindex="2">error</div>
 </div>
-<div class="menufooter">A <a href="https://uint.dev/" target="_blank" rel="noopener">uint.dev</a> project</div>
+<div class="menufooter">A <a href="https://uint.dev/" target="_blank" rel="noopener" tabindex="-1">uint.dev</a> project</div>
 </div>
 <div class="coverarea"></div>
 <div class="zoneblock">
@@ -91,16 +91,39 @@ function checkjson(jsonin) {
     } catch (e) {}
     return false;
 }
+function menutablock(tolock = true) {
+    var linkindex;
+    $('.menulist .menuselection .menuoption').each(function() {
+        if (tolock) {
+            $(this).prop('tabindex', '-1');
+        } else {
+            linkindex = 0;
+            datnum = $(this).attr('data-order');
+            datnum = parseInt(datnum) + 1;
+            $(this).prop('tabindex', datnum);
+            linkindex = datnum + 1;
+        }
+    });
+    $('.menulist .menufooter a').each(function() {
+        if (tolock) {
+            $(this).prop('tabindex', '-1');
+        } else {
+            $(this).prop('tabindex', linkindex);
+        }
+    });
+}
 function menuloader(jsonres = '') {
     $('.menuselection').html('');
     if (checkjson(jsonres)) {
         jsondat = window.JSON.parse(jsonres);
+        indextab = 1;
         for (var count in jsondat) {
-            $('.menuselection').append('<div class="menuoption action" data-order="' + count + '" data-launch="' + jsondat[count]['path'] + '">' + jsondat[count]['name'] + '</div>');
+            $('.menuselection').append('<div class="menuoption action" data-order="' + count + '" tabindex="-1" data-launch="' + jsondat[count]['path'] + '">' + jsondat[count]['name'] + '</div>');
         }
     } else {
-        $('.menuselection').append('<div class="menuoption" data-order="1" data-launch="">malformed data</div>');
+        $('.menuselection').append('<div class="menuoption" data-order="1" tabindex="2" data-launch="">malformed data</div>');
     }
+    menutablock();
 }
 var list = document.getElementsByClassName('preload')[0];
 list.getElementsByClassName('shell_loader_text')[0].innerHTML = 'loading ...';
@@ -146,6 +169,7 @@ if (typeof $ == 'undefined') {
         function togglemenu(specialexception = 'none') {
             if (menutog === false) {
                 menutog = true;
+                menutablock(false);
                 $('.menutoggle').addClass('menutogglelock');
                 $('.coverarea').addClass('show');
                 setTimeout(function() {
@@ -155,6 +179,7 @@ if (typeof $ == 'undefined') {
                     $('.menulist').addClass('menu_show');
                 }, 150);
             } else if (menutog === true) {
+                menutablock();
                 $('.menutoggle').removeClass('menutogglelock');
                 $('.menulist').removeClass('menu_show');
                 setTimeout(function() {
@@ -357,6 +382,14 @@ if (typeof $ == 'undefined') {
                                 actionlock = false;
                         }
                     }, 300);
+                }
+            });
+
+            // Handler for accessibility (when using the enter key)
+            $(document).keypress(function(event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    $(event.target).click();
                 }
             });
         });

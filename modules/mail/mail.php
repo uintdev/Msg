@@ -19,7 +19,7 @@ if ($mailexists > 0) {
         $livemailinfo = $con->query("SELECT `id`,`puid`,`username` FROM `accounts` WHERE `puid`='".$mailresults['sender']."'");
         $livemailresults = $livemailinfo->fetch_assoc();
 
-        echo '<div class="mailselection action" data-launch="inbox/' . $mailresults['secid'] . '"><b>' . $mailresults['subject'];
+        echo '<div class="mailselection action" tabindex="0" data-launch="inbox/' . $mailresults['secid'] . '"><b>' . $mailresults['subject'];
         echo '</b><span style="float:right;color:grey;font-size:80%;">' . $livemailresults['username'] . '</span><br><span style="color:grey;font-size:90%;">' . $mailresults['subject'] . '</span></div>';
 
         $livemailinfo->free();

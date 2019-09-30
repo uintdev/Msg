@@ -42,7 +42,7 @@ if (!isset($verifier)) exiti('bad access'); // check not accessed via queryparse
 <input type="submit" id="login_sub" value="login">
 </form>
 <br>
-<span class="formtog">register</span>
+<a class="formtog" href="javascript:void(0)">register</a>
 <br>
 <br>
 forgot your password?
