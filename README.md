@@ -34,7 +34,8 @@ You can try it out at https://msg.uint.dev/. Please note that the live site is b
 
 ## Known issues
 
-- On a mobile device, quickly toggling the menu and closing it by touching the shaded area can result in the menu locking until a navigation option is selected or the page is reloaded
+- On touch screen devices, quickly toggling the menu and closing it by touching the shaded area can result in the menu locking until a navigation option is selected or the page is reloaded
+- When selecting the menu toggle button via tab key and spamming the enter key, the previously mentioned issue also occurs
 
 ## Prerequisites
 
