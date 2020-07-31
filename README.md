@@ -9,7 +9,7 @@ Development began back in 2016. It slowed down to a halt after a while.
 <br>
 This is a public release of the source code behind it. It is unfinished. A lot of the framework is already in place, albeit still needs changes.
 <br>
-You can try it out at https://msg.uint.dev/. Please note that as live site is worked on directly, it may not accurately reflect what is currently up on this repository.
+You can try it out at https://msg.uint.dev/. Please note that as the live site is worked on directly, it may not accurately reflect what is currently up on this repository.
 
 ## Features
 
