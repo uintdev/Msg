@@ -184,31 +184,6 @@ function strgen($length = 150, $characters = '0123456789abcdefghijklmnopqrstuvwx
 }
 
 /**
- * TOR exit node check.
- *
- * @return boolean
- */
-function IsTorExitPoint()
-{
-    $ipformat = strpos(REQ_CLIENT_IP, ':');
-
-    if (!$ipformat) {
-
-        $fields = ['QueryIP' => REQ_CLIENT_IP];
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'https://torstatus.blutmagie.de/tor_exit_query.php');
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $html = curl_exec($ch);
-        return strstr($html, 'The IP Address you entered matches one or more active Tor servers'); // if the ip is listed then it's true
-    } else {
-        return true; // if using ipv6 then bypass check
-    }
-}
-
-/**
  * Cryptography management.
  *
  * @param string $mode Encrypt or decrypt switch.
