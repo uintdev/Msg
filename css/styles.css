@@ -73,9 +73,13 @@ a:hover, a:focus {
     opacity: 0;
 }
 .shell_loader_con {
-    transform: translate(0,330%);
     transition: all 0.3s !important;
     font-size: 100%;
+    backface-visibility: hidden;
+    transform: translate(-50%, -50%) scale(1.0, 1.0);
+    position: fixed;
+    top: 50%;
+    left: 50%;
 }
 .shell_loader_con_expand {
     font-size: 140%;
