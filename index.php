@@ -30,7 +30,7 @@ header("Content-Security-Policy: script-src 'self' 'strict-dynamic' 'nonce-".CSP
     <head>
         <title><?php echo SITE_NAME_FRIENDLY; ?></title>
         <link rel="icon" href="/img/icon.png">
-        <link rel="apple-touch-icon-precomposed" href="/img/icon.png">
+        <link rel="apple-touch-icon" href="/img/icon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="stylesheet" type="text/css" property="stylesheet" href="/css/styles.css" async>
         <meta charset="utf-8">
