@@ -444,6 +444,6 @@ input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hov
     }
 
     .loading {
-    	top: -10px;
+        top: -10px;
     }
 }
