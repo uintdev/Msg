@@ -7,15 +7,10 @@
 }
 
 .preload * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
+    transition: none !important;
 }
 
 * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -50,10 +45,6 @@ hr {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
     margin: 0;
     padding: 0;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
 }
 
@@ -74,13 +65,9 @@ a:hover, a:focus {
     left: 0;
     height: 110%;
     width: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     z-index: 99999999;
     transition: all 0.5s !important;
-    -webkit-transition: all 0.5s !important;
 }
 .shell_loader_fadeaway {
     opacity: 0;
@@ -88,7 +75,6 @@ a:hover, a:focus {
 .shell_loader_con {
     transform: translate(0,330%);
     transition: all 0.3s !important;
-    -webkit-transition: all 0.3s !important;
     font-size: 100%;
 }
 .shell_loader_con_expand {
@@ -112,9 +98,6 @@ a:hover, a:focus {
     background-color: rgba(126,97,229,1);
     color: #fff;
     width: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 .main-logo {
@@ -139,7 +122,6 @@ a:hover, a:focus {
     position: absolute;
     top: -5px;
     right: 30px;
-    -webkit-transition: all 0.1s;
     transition: all 0.1s !important;
     z-index: 12;
 
@@ -176,7 +158,6 @@ a:hover, a:focus {
     border-radius: 40px;
     z-index: 10;
     cursor: pointer;
-    -webkit-transition: all 0.2s !important;
     transition: all 0.2s !important;
 }
 .menutoggle:focus, .menutoggle:hover {
@@ -188,9 +169,6 @@ a:hover, a:focus {
 }
 .menulist {
     background-color: rgba(255, 255, 255, 1);
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     width: 20%;
     height: 100%;
@@ -204,7 +182,6 @@ a:hover, a:focus {
     border-color: rgba(0,0,0,0.1);
     z-index: 999;
     transition: all 0.5s !important;
-    -webkit-transition: all 0.5s !important;
 }
 .menu_show {
     left: 0% !important;
@@ -217,10 +194,6 @@ a:hover, a:focus {
     width: 100%;
     font-size: 95%;
     transition: none;
-    -webkit-transition: none;
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
     transform: none;
 }
 .menuoption:focus {
@@ -233,15 +206,8 @@ a:hover, a:focus {
     color: rgba(0, 0, 0, 0.5);
     width: 100%;
     margin-bottom: 20px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     transition: none;
-    -webkit-transition: none;
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
     transform: none;
 }
 .menuheadercontent {
@@ -253,10 +219,6 @@ a:hover, a:focus {
     background-color: rgba(0, 0, 0, 0.2);
     color: rgba(255, 255, 255, 1);
     transition: none;
-    -webkit-transition: none;
-    -webkit-transform: none;
-    -moz-transform: none;
-    -ms-transform: none;
     transform: none;
 }
 .menu_selection {
@@ -283,10 +245,6 @@ a:hover, a:focus {
     overflow: hidden;
     cursor: pointer;
     background-color: rgba(255, 142, 25, 0);
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
 }
 
@@ -297,9 +255,13 @@ a:hover, a:focus {
 	transform: scale(0);
 }
 
-.ink.animate {animation: ripple 0.30s linear;}
+.ink.animate {
+    animation: ripple 0.30s linear;
+}
 @keyframes ripple {
-	100% {opacity: 0; transform: scale(2.5);}
+	100% {
+        opacity: 0; transform: scale(2.5);
+    }
 }
 
 .zoneblock {
@@ -329,15 +291,11 @@ a:hover, a:focus {
     display: none;
     position: fixed;
     top: 0;
-    -webkit-transition: all 0.1s !important;
     transition: all 0.1s !important;
     width: 120%;
     height: 120%;
     background-color: rgba(0, 0, 0, 0);
     z-index: 99;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
 .coverareaa {
@@ -348,7 +306,7 @@ a:hover, a:focus {
 }
 
 ::-webkit-input-placeholder {
-   color: #ababab;
+    color: #ababab;
 }
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
@@ -365,7 +323,6 @@ input[type="email"], input[type="text"], input[type="password"] {
     font-size: 100%;
     width: 30%;
     transition: all 0.2s;
-    -webkit-transition: all 0.2s;
 }
 input[type="password"]:read-only, input[type="text"]:read-only {
     color: grey;
@@ -382,7 +339,6 @@ input[type="submit"], input[type="button"] {
     outline: none;
     width: 15%;
     transition: all 0.1s;
-    -webkit-transition: all 0.1s;
 }
 input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hover, input[type="button"]:focus {
     background-color: #5d49a3;
@@ -433,9 +389,8 @@ input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hov
     }
     .menulist {
         left: -75%;
-        width: -webkit-calc(75% - 2px);
+        width: calc(75% - 2px);
         transition: all 0.3s !important;
-        -webkit-transition: all 0.3s !important;
     }
     .menuoption {
         cursor: none;
