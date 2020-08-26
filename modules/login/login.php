@@ -19,17 +19,25 @@ if (!isset($verifier)) exiti('bad access'); // check not accessed via queryparse
 <div class="alert"></div>
 <br>
 <form class="magicform" method="post">
-<input type="email" id="email" minlength="8" maxlength="40" class="email" name="email" placeholder="email">
+<label for="email">email</label>
+<br>
+<input type="email" id="email" minlength="8" maxlength="40" class="email" name="email">
 <br>
 <br>
-<input type="password" minlength="10" maxlength="160" id="password" class="password" name="password" placeholder="password">
+<label for="password">password</label>
+<br>
+<input type="password" minlength="10" maxlength="160" id="password" class="password" name="password">
 <input type="hidden" name="token" value="<?php echo $authtoken ?>">
 <div id="regblock">
 <br>
-<input type="password" minlength="10" maxlength="160" id="passworda" class="passworda" name="passworda" placeholder="password again" disabled>
+<label for="passworda">password again</label>
+<br>
+<input type="password" minlength="10" maxlength="160" id="passworda" class="passworda" name="passworda" disabled>
 <br>
 <br>
-<input type="text" minlength="4" maxlength="20" id="username" class="username" name="username" placeholder="username" disabled>
+<label for="username">username</label>
+<br>
+<input type="text" minlength="4" maxlength="20" id="username" class="username" name="username" disabled>
 <br>
 <br>
 <div class="g-recaptcha" data-sitekey="<?php echo API_GREC_SITE; ?>" data-size="invisible"></div>
