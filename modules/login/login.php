@@ -75,7 +75,7 @@ $(function() {
         et.preventDefault();
         et.stopImmediatePropagation();
 
-        if (window.formmode == 0 && togglefirst === false) {
+        if (window.formmode === 0 && togglefirst === false) {
             window.submissionmsg = 'registering...';
             $('#login_sub').val('register');
             $('.formtog').html('login');
