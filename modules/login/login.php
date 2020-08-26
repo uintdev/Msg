@@ -28,6 +28,7 @@ if (!isset($verifier)) exiti('bad access'); // check not accessed via queryparse
 <br>
 <input type="password" minlength="10" maxlength="160" id="password" class="password" name="password">
 <input type="hidden" name="token" value="<?php echo $authtoken ?>">
+<br>
 <div id="regblock">
 <br>
 <label for="passworda">password again</label>
