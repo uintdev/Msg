@@ -134,7 +134,7 @@ if (typeof $ == 'undefined') {
     console.log("%cINFO: JS library loaded - powered by jQuery "+jQuery.fn.jquery, 'color:#7e61e5;');
     window.onload = function() {
         $.get('/backend/menu.php', function(data) {
-            if (data != '') {
+            if (data !== '') {
                 menuloader(data);
                 setTimeout(function() {
                     $('.shell_loader_con').addClass('shell_loader_con_expand');
@@ -180,11 +180,11 @@ if (typeof $ == 'undefined') {
                 $('.menulist').removeClass('menu_show');
                 setTimeout(function() {
                     $('.coverarea').removeClass('coverareaa');
-                    if (specialexception != 'm') {
+                    if (specialexception !== 'm') {
                         menutog = false;
                     }
                 }, 250);
-                if (specialexception == 'm') {
+                if (specialexception === 'm') {
                     setTimeout(function() {
                         $('.coverarea').removeClass('show');
                         menutog = false;
@@ -195,7 +195,7 @@ if (typeof $ == 'undefined') {
         // Modern navigation
         function navigator(location = '', ntype = '') {
             getquerybit = window.location.pathname.replace('/', '');
-            if (getquerybit != location && ntype == 'n') {
+            if (getquerybit !== location && ntype === 'n') {
                 history.pushState('/' + location, '', '/' + location);
                 delete getquerybit;
                 getquerybit = window.location.pathname.replace('/', '');
@@ -206,9 +206,9 @@ if (typeof $ == 'undefined') {
             $.get('/backend/menu.php', function(data) {
                 if (data != '') {
                     menuloader(data);
-                    if (option == 'm') navigator('','n');
+                    if (option === 'm') navigator('','n');
                     $.post('/backend/queryparser.php?query', {cspjs: cspjss, token: csrfcookie}, function(datab) {
-                        if (datab != '') {
+                        if (datab !== '') {
                             menuloader(data);
                             if ($('.zoneblock').html() != '') {
                                 $('.zoneblock').html(datab);
@@ -250,7 +250,7 @@ if (typeof $ == 'undefined') {
                         $('.loading').removeClass('loading_s');
                         $('.zoneblock').html('<div style="text-align:center;">'+jsontitle+'<br>'+jsonbody+'</div>');
                     } else {
-                        if (data == 'logoutpls') {
+                        if (data === 'logoutpls') {
                             $('.loading').removeClass('loading_s');
                             $('.zoneblock').html('<div style="text-align:center;">logging out ...</div>');
                             reloadall('m');
@@ -287,7 +287,7 @@ if (typeof $ == 'undefined') {
                                 console.error('Error checking update: '+jsonmsg);
                             } else if (jsonresp == 'VERCHK') {
                                 var jsonmode = jsonres.mode;
-                                if (jsonmode == 'UPD') {
+                                if (jsonmode === 'UPD') {
                                     var jsoncurrentv = jsonres.currentv;
                                     var jsoncurrentb = jsonres.currentb;
                                     var jsonnewv = jsonres.newv;
@@ -295,10 +295,10 @@ if (typeof $ == 'undefined') {
                                     // $('.updatenot').html(jsonmsg+". New build: "+jsonnewv+'_'+jsonnewb+" - Loaded: "+jsoncurrentv+'_'+jsoncurrentb+" - Refresh?");
                                     $('.updatenot').html(jsonmsg);
                                     updatelock = true;
-                                } else if (jsonmode != 'HALT') {
+                                } else if (jsonmode !== 'HALT') {
                                     $('.updatenot').html('UCBR tampered : Unknown mode');
                                 }
-                            } else if (jsonres.code == 10) {
+                            } else if (jsonres.code === 10) {
                                 $('.updatenot').html(jsonres.body);
                             } else if (jsonresp != '') {
 								$('.updatenot').html('UCBR tampered : Unknown response type');
@@ -352,7 +352,7 @@ if (typeof $ == 'undefined') {
 
                 parent = $(this);
 
-                if (parent.find('.ink').length == 0)
+                if (parent.find('.ink').length === 0)
                 $('<span class="ink"></span>').appendTo($(this));
         
                 ink = parent.find('.ink');
@@ -391,7 +391,7 @@ if (typeof $ == 'undefined') {
             // Handler for accessibility (when using the enter key)
             $(document).keypress(function(event) {
                 var keycode = (event.keyCode ? event.keyCode : event.which);
-                if (keycode == '13') {
+                if (keycode === 13) {
                     $(event.target).click();
                 }
             });
