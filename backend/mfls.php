@@ -55,7 +55,7 @@ if (isset($_POST['passworda'])) {
 
     $passworda = $_POST['passworda'];
 
-    if ($password != $passworda) exiti('both passwords don\'t match');
+    if ($password !== $passworda) exiti('both passwords don\'t match');
 
     $switch = 1;
 
@@ -93,7 +93,7 @@ if (!$verify) exiti('an error has occurred. try again later.');
 $valid = $verify->num_rows;
 
 # LOGIN
-if ($switch == 0) {
+if ($switch === 0) {
 
     if ($valid > 0) {
 
@@ -122,7 +122,7 @@ $verify->free();
 
 
 # REGISTER
-if ($switch == 1) {
+if ($switch === 1) {
 
     if (CONFIG_REGISTER_DISABLED === true) exiti(CONFIG_REGISTER_DISABLED_MSG); // registration disabled check
     if (CONFIG_READONLY === true) exiti(CONFIG_READONLY_MSG); // read only check
@@ -140,7 +140,7 @@ if ($switch == 1) {
     if (!$uused) exiti('an error has occurred. try again later.');
     $uusedi = $uused->num_rows;
 
-    if ($uusedi == 0 && $valid == 0) {
+    if ($uusedi === 0 && $valid === 0) {
 
         $uid = strgen(); // uid for account
         $activkey = strgen(60); // activation key
@@ -149,17 +149,17 @@ if ($switch == 1) {
         $puidchk = false; // determines if the loop should end
         $puidchkcnt = 0; // retry count
         while ($puidchk === false) {
-            if ($puidchkcnt == 3) exiti('error while creating account data - try again later'); // allowed retry attempts exceeded
+            if ($puidchkcnt === 3) exiti('error while creating account data - try again later'); // allowed retry attempts exceeded
 
             $puid = strgen(10, '0123456789ABCDEF'); // public id
             $puidq = $con->query("SELECT `id`,`puid` FROM `accounts` WHERE `puid`='$puid'");
             if (!$puidq) exiti('error while setting up account data - try again later');
             $puidc = $puidq->num_rows;
 
-            if (($puidc <=> 1) == -1) {
+            if (($puidc <=> 1) === -1) {
                 $puidchk = true; // doesn't already exist
             } else {
-                ++$puidchkcnt; // it does exist
+                $puidchkcnt++; // it does exist
             }
             $puidq->free();
         }
@@ -217,7 +217,7 @@ if ($switch == 1) {
             <br/>
             <a href="https://' . SITE_DOMAIN . '/actistaging/' . $activkey . '">https://' . SITE_DOMAIN . '/actistaging/' . $activkey . '</a>
             <br/>
-            IP used for registration: '.REQ_CLIENT_IP.'
+            IP used for registration: ' . REQ_CLIENT_IP . '
             <br/>
             <br/>
             <br/>
