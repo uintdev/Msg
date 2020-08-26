@@ -82,7 +82,7 @@ if (isset($_POST['username'])) {
 
 }
 
-# ACCOUNT EXISTANCE CHECK
+# ACCOUNT EXISTENCE CHECK
 
 if (!preg_match('/[\w\.+-]+@[\w\.-]+[.][\w]+/', $email)) exiti('please enter a valid email address. i.e. user@example.com'); // email format checker
 
@@ -124,11 +124,14 @@ $verify->free();
 # REGISTER
 if ($switch == 1) {
 
-    if (CONFIG_REGISTER_DISABLED === true) exiti(CONFIG_REGISTER_DISABLED_MSG); // regisitration disabled check
+    if (CONFIG_REGISTER_DISABLED === true) exiti(CONFIG_REGISTER_DISABLED_MSG); // registration disabled check
     if (CONFIG_READONLY === true) exiti(CONFIG_READONLY_MSG); // read only check
 
     // check if user checked the checkbox
     if (!isset($_POST['tos'])) exiti('you must accept the terms of service');
+
+    // tor exit node check
+    if (IsTorExitPoint()) exiti('please do not use TOR during registration - this is disallowed in attempt to prevent abuse');
 
     // recaptcha check
     if (!recaptcha()) exiti('recaptcha is incomplete'); // recaptcha failure
@@ -170,7 +173,7 @@ if ($switch == 1) {
         $ua = $con->real_escape_string($ua);
 		
 		/*
-		add in iv, partital (en/de)cryption key and other crypto data for accounts table.
+		add in iv, partial (en/de)cryption key and other crypto data for accounts table.
 		encrypt uid, email, ip and so forth.
 		
 		how the migration might be implemented:
@@ -226,7 +229,7 @@ if ($switch == 1) {
             <br/>
             <br/>
             <br/>
-            A service provided by <a href="https://uint.dev/">Muffin.Cloud</a>.
+            A service provided by <a href="https://uint.dev/">uint.dev</a>.
             </body>
             </html>
             '; // email body
