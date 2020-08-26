@@ -43,7 +43,7 @@ if (!isset($verifier)) exiti('bad access'); // check not accessed via queryparse
 <br>
 <div class="g-recaptcha" data-sitekey="<?php echo API_GREC_SITE; ?>" data-size="invisible"></div>
 <br>
-<input type="checkbox" name="tos" id="tos" autocomplete="off"> <label for="tos">have you read and agree to the <a href="/tos" target="_blank">terms of service?</a></label>
+<input type="checkbox" name="tos" id="tos" autocomplete="off"> <label for="tos">have you read and agree to the <a href="/tos" target="_blank" rel="noopener">terms of service?</a></label>
 </div>
 <br>
 <br>
