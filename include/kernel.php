@@ -46,8 +46,8 @@ define('API_MAIL', ''); // 32 character hexidecimal mailgun api key
 define('API_GREC_SECRET', ''); // secret key for google recaptcha
 define('API_GREC_SITE', ''); // site key for google recaptcha
 // scripts
-define('SCR_JQUERY_URI', 'https://code.jquery.com/jquery-3.4.1.min.js');
-define('SCR_JQUERY_SRIHASH', 'sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh'); // sri hash for jquery resource https://www.srihash.org/
+define('SCR_JQUERY_URI', 'https://code.jquery.com/jquery-3.5.1.min.js');
+define('SCR_JQUERY_SRIHASH', 'sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2'); // sri hash for jquery resource https://www.srihash.org/
 // request data
 define('REQ_CLIENT_IP', $_SERVER['REMOTE_ADDR']); // client IP address
 // global user configuration
