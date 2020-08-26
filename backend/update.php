@@ -12,7 +12,7 @@ if (!sourceverifier()) exiti('access source denied');
 
 chktoken();
 
-if (isset($_POST['vi']) && $_POST['vi'] != '') {
+if (isset($_POST['vi']) && $_POST['vi'] !== '') {
     $vii = explode(':', $_POST['vi']);
     if (!isset($vii[0]) || !isset($vii[1]) || isset($vii[2])) {
         $updat = [
@@ -24,7 +24,7 @@ if (isset($_POST['vi']) && $_POST['vi'] != '') {
             'res' => 'ERR',
             'msg' => 'Bad data'
         ];
-    } else if (SITE_BUILD != $vii[1] || SITE_VERSION > $vii[0]) {
+    } else if (SITE_BUILD !== $vii[1] || SITE_VERSION > $vii[0]) {
         $updat = [
             'res' => 'VERCHK',
             'currentv' => (int)$vii[0],
