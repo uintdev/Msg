@@ -53,6 +53,8 @@ if (!$moduleinfo) {
 $moduleexists = $moduleinfo->num_rows;
 $moduleinfoi = $moduleinfo->fetch_assoc();
 
+$moduleauthreq = (int)$moduleinfoi['loginreq'];
+
 # PRIVS
 /*
 Please, clean this mess up.
@@ -60,24 +62,24 @@ Please, clean this mess up.
 $loginreqa = false; // auth
 $loginreql = 0; // login request ID
 
-if ($userexists == 0 && $moduleinfoi['loginreq'] == 0) {
+if ($userexists === 0 && $moduleauthreq === 0) {
     $loginreqa = true; // not logged in and no registered users allowed
     $loginreql = 1;
-} elseif ($userexists == 0 && $moduleinfoi['loginreq'] == 2) {
+} elseif ($userexists === 0 && $moduleauthreq === 2) {
     $loginreqa = true; // not logged in and allowed to access either way
     $loginreql = 2;
-} elseif ($userexists == 1 && $moduleinfoi['loginreq'] == 1) {
+} elseif ($userexists === 1 && $moduleauthreq === 1) {
     $loginreqa = true; // logged in and registered users only
     $loginreql = 3;
-} elseif ($userexists == 1 && $moduleinfoi['loginreq'] == 2) {
+} elseif ($userexists === 1 && $moduleauthreq === 2) {
     $loginreqa = true; // logged in and registered users only
     $loginreql = 4;
 }
 
-if ($query[0] == '') {
+if ($query[0] === '') {
     // default page handling
     $mainid = $userexists;
-    //if ($loginreql == 1) $mainid = 2; // TODO: PRIV ID ISSUE HERE - CORRECT MULI-PRIV DETECTION - insert OR into query
+    //if ($loginreql === 1) $mainid = 2; // TODO: PRIV ID ISSUE HERE - CORRECT MULI-PRIV DETECTION - insert OR into query
     $moduleinfo = $con->query("SELECT `id`,`name`,`path`,`loginreq`,`main` FROM `pages` WHERE loginreq='$mainid' AND main='1'");
     if (!$moduleinfo) {
 		// query error
@@ -91,7 +93,7 @@ if ($query[0] == '') {
     $moduleexists = $moduleinfo->num_rows;
     $moduleinfoi = $moduleinfo->fetch_assoc();
 
-    if ($moduleexists == 1) {
+    if ($moduleexists === 1) {
         if (@!include($bitpath.$moduleinfoi['path'])) {
             if (sourceverifier()) {
                 echo jsonres('error', 'bad access', 4, 'msg');
@@ -104,7 +106,7 @@ if ($query[0] == '') {
         echo 'no default page set or conflict detected'; // unable to access file or more than one result
     }
 
-} elseif ($moduleexists == 1 && $loginreqa === true) {
+} elseif ($moduleexists === 1 && $loginreqa === true) {
     if (@!include($bitpath.$moduleinfoi['path'])) {
         if (sourceverifier()) {
             echo jsonres('error', 'bad access', 5, 'msg');
@@ -113,14 +115,14 @@ if ($query[0] == '') {
         }
     }
     // include existing result
-} elseif ($moduleexists == 1 && $loginreqa === false) {
+} elseif ($moduleexists === 1 && $loginreqa === false) {
     // not allowed to access page (login privs)
     if (sourceverifier()) {
         echo jsonres('error', 'please log in', 6, 'msg');
     } else {
         echo 'please log in';
     }
-} elseif ($moduleexists == 0) {
+} elseif ($moduleexists === 0) {
     // page not found
     if (sourceverifier()) {
         echo jsonres('error', 'broken link - try again later', 7, 'msg'); // alert message
