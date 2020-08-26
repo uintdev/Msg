@@ -58,7 +58,7 @@ a:hover, a:focus {
 
 .shell_loader {
     display: none;
-    background-color: rgba(126,97,229, 1);
+    background-color: rgba(126, 97, 229, 1);
     opacity: 1;
     position: fixed;
     top: 0;
@@ -99,7 +99,7 @@ a:hover, a:focus {
 }
 
 .header {
-    background-color: rgba(126,97,229,1);
+    background-color: rgba(126, 97, 229, 1);
     color: rgba(255, 255, 255, 1);
     width: 100%;
     user-select: none;
@@ -140,14 +140,14 @@ a:hover, a:focus {
     height: 63px;
     width: 70px;
     vertical-align: middle;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
 }
 .menuicon {
     position: absolute;
     top: 16px;
     left: 35px;
     display: inline-block;
-    box-shadow: 0 9px 0 2px rgba(255, 255, 255, 1),0 16px 0 2px rgba(255, 255, 255, 1),0 23px 0 2px rgba(255, 255, 255, 1);
+    box-shadow: 0 9px 0 2px rgba(255, 255, 255, 1), 0 16px 0 2px rgba(255, 255, 255, 1), 0 23px 0 2px rgba(255, 255, 255, 1);
     z-index: 11;
 }
 .menutoggle {
@@ -183,7 +183,7 @@ a:hover, a:focus {
     text-align: center;
     margin-top: 0px;
     margin-right: 0px;
-    border-color: rgba(0,0,0,0.1);
+    border-color: rgba(0, 0, 0, 0.1);
     z-index: 999;
     transition: all 0.5s !important;
 }
@@ -201,7 +201,7 @@ a:hover, a:focus {
     transform: none;
 }
 .menuoption:focus {
-    background-color: rgba(126,97,229,0.2);
+    background-color: rgba(126, 97, 229, 0.2);
     outline: none;
 }
 .menuheader {
@@ -254,18 +254,19 @@ a:hover, a:focus {
 
 .ink {
 	display: block; position: absolute;
-	background: rgba(126,97,229,0.4);
+	background: rgba(126, 97, 229, 0.4);
 	border-radius: 100%;
 	transform: scale(0);
 }
 
-.ink.animate {
-    animation: ripple 0.30s linear;
-}
 @keyframes ripple {
 	100% {
         opacity: 0; transform: scale(2.5);
     }
+}
+
+.ink.animate {
+    animation: ripple 0.30s linear;
 }
 
 .zoneblock {
@@ -280,7 +281,7 @@ a:hover, a:focus {
 
 .alert {
     display: none;
-    background-color: rgba(126,97,229,1);
+    background-color: rgba(126, 97, 229, 1);
     color: rgba(255, 255, 255, 1);
     border: solid 0px;
     border-radius: 3px;
@@ -354,7 +355,7 @@ input[type="submit"]:hover, input[type="submit"]:focus, input[type="button"]:hov
     text-align: left;
 }
 .mailselection:focus {
-    background-color: rgba(126,97,229,0.2);
+    background-color: rgba(126, 97, 229, 0.2);
     outline: none;
 }
 
