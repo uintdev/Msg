@@ -15,9 +15,9 @@ $menulogger = $con->query("SELECT `id`, `entry_order`, `name`, `path`, `loggedin
 $menu_order = 0; // entry order for menu entry
 
 while ($menulogresult = $menulogger->fetch_assoc()) {
-    $menu_loggedin = $menulogresult['loggedin']; // login data from menu entry
+    $menu_loggedin = (int)$menulogresult['loggedin']; // login data from menu entry
 
-    if ($menu_loggedin == 2 || $userexists == $menu_loggedin) {
+    if ($menu_loggedin === 2 || $userexists === $menu_loggedin) {
         // if menu entry is accessible globally or if login data matches
         $menu_name = $menulogresult['name']; // name of menu entry
         $menu_path = $menulogresult['path']; // path of menu entry
