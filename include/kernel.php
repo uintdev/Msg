@@ -20,7 +20,7 @@ define('COOKIE_TOKEN_LENGTH', 50); // length of token
 define('SITE_DOMAIN', 'msg.uint.dev'); // generic cookie domain
 define('SITE_NAME', 'msg.uint.dev'); // full name to display
 define('SITE_NAME_FRIENDLY', 'msg'); // shorter name to display
-define('SITE_VERSION', 57); // site version
+define('SITE_VERSION', 58); // site version
 define('SITE_BUILD', 'DEV'); // site build type
 // configuration
 define('CONFIG_SQL_CHARSET', 'utf8mb4'); // connection character set for mysql
