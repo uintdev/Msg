@@ -130,9 +130,6 @@ if ($switch === 1) {
     // check if user checked the checkbox
     if (!isset($_POST['tos'])) exiti('you must accept the terms of service');
 
-    // tor exit node check
-    if (IsTorExitPoint()) exiti('please do not use TOR during registration - this is disallowed in attempt to prevent abuse');
-
     // recaptcha check
     if (!recaptcha()) exiti('recaptcha is incomplete'); // recaptcha failure
 
