@@ -8,8 +8,10 @@ A modern mobile messaging web application.
 Development began back in 2016. It slowed down to a halt after a while.
 <br>
 This is a public release of the source code behind it. It is unfinished. A lot of the framework is already in place, albeit still needs changes.
-<br>
-You can try it out at https://msg.uint.dev/. Please note that as the live site is worked on directly, it may not accurately reflect what is currently up on this repository.
+
+> **Note**
+> There are no plans to further maintain this project. Hence, this repository had been archived.
+> Feel free to fork or borrow some concepts from here.
 
 ## Features
 
@@ -21,7 +23,6 @@ You can try it out at https://msg.uint.dev/. Please note that as the live site i
 - Update notification system
 
 ## To do
-(In no particular order...)
 - Clean up update notification system
 - Add mail compose option
 - Fix main conversation view
@@ -40,7 +41,7 @@ You can try it out at https://msg.uint.dev/. Please note that as the live site i
 
 For this to function, there are a few requirements.
 
-- PHP 7
+- PHP 7 or later
 - PHP cURL & JSON extensions
 - OpenSSL
 - Google reCaptcha v2
